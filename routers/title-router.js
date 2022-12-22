@@ -5,9 +5,9 @@ const router = express.Router()
 // endpoints here
 router.post("/", create);
 router.get("/", findAll);
-router.get("/:id", findOne);
-router.put("/:id", updateOne);
-router.delete("/:id", deleteOne);
+router.get("/:movieId", findOne);
+router.put("/:movieId", updateOne);
+router.delete("/:movieId", deleteOne);
 
 module.exports = {
     router

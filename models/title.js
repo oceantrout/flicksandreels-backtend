@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const titleSchema = new Schema(
     {
-        id: {
+        movieId: {
             type: String,
             required: true,
         },
@@ -31,5 +31,3 @@ const titleSchema = new Schema(
 const Title = mongoose.model("Title", titleSchema);
 
 module.exports = Title;
-
-// "Comedian" => "comedians"
