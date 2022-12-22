@@ -63,18 +63,16 @@ const deleteOne = async (req, response) => {
     console.log(movieId);
     const userName = req.params.userName;
     console.log(userName);
-    db_connect
-      .collection("reviews")
-      .updateMany(
-        { movieId: movieId },
-        { $pull: { items: { $elemMatch: { username: userName } } } },
-        { multi: true },
-        function (err, res) {
-          if (err) throw err;
-          console.log("1 document updated");
-          response.json(res);
-        }
-      );
+    db_connect.collection("reviews").updateOne(
+      { movieId: movieId },
+      { $pull: { items: { username: userName } } },
+
+      function (err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        response.json(res);
+      }
+    );
   } catch (e) {
     console.error(e);
     res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
